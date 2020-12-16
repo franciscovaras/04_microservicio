@@ -12,12 +12,12 @@ import com.fvarasg.inicio.model.Contacto;
 public class AgendaServiceImpl implements IAgendaService {
 	
 	@Autowired
-	IAgendaDao dao;
+	IAgendaDao agendaDao;
 	
 	@Override
 	public boolean agregarContacto(Contacto contacto) {
-		if(dao.recuperarContacto(contacto.getIdContacto()) == null) {
-			dao.agregarContacto(contacto);
+		if(agendaDao.recuperarContacto(contacto.getIdContacto()) == null) {
+			agendaDao.agregarContacto(contacto);
 			return true;
 		}
 		return false;
@@ -25,20 +25,20 @@ public class AgendaServiceImpl implements IAgendaService {
 
 	@Override
 	public List<Contacto> recuperarContactos() {
-		return dao.devolverContactos();
+		return agendaDao.devolverContactos();
 	}
 
 	@Override
 	public void actualizarContacto(Contacto contacto) {
-		if(dao.recuperarContacto(contacto.getIdContacto()) != null) {
-			dao.actualizarContacto(contacto);
+		if(agendaDao.recuperarContacto(contacto.getIdContacto()) != null) {
+			agendaDao.actualizarContacto(contacto);
 		}
 	}
 
 	@Override
 	public boolean eliminarContacto(int idContacto) {
-		if(dao.recuperarContacto(idContacto) != null) {
-			dao.eliminarContacto(idContacto);
+		if(agendaDao.recuperarContacto(idContacto) != null) {
+			agendaDao.eliminarContacto(idContacto);
 			return true;
 		}
 		return false;
@@ -46,7 +46,7 @@ public class AgendaServiceImpl implements IAgendaService {
 
 	@Override
 	public Contacto buscarContacto(int idContacto) {
-		return dao.recuperarContacto(idContacto);
+		return agendaDao.recuperarContacto(idContacto);
 	}
 
 }

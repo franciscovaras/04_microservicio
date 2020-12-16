@@ -19,33 +19,33 @@ import com.fvarasg.inicio.service.IAgendaService;
 public class ContactosController {
 	
 	@Autowired
-	IAgendaService agenda;
+	IAgendaService agendaService;
 	
 	@GetMapping(value="contactos", produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Contacto> recuperarContactos(){
-		return agenda.recuperarContactos();
+		return agendaService.recuperarContactos();
 	}
 	
 	@GetMapping(value="contactos/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
 	public Contacto recuperarContacto(@PathVariable int id){
-		return agenda.buscarContacto(id);
+		return agendaService.buscarContacto(id);
 	}
 	
 	@PostMapping(value="contactos",consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public String crearContacto(@RequestBody Contacto contacto) {
-		return String.valueOf(agenda.agregarContacto(contacto));
+		return String.valueOf(agendaService.agregarContacto(contacto));
 		
 	}
 	
 	@PutMapping(value="contactos",consumes=MediaType.APPLICATION_JSON_VALUE)
 	public void ActualizarContacto(@RequestBody Contacto contacto) {
-		agenda.actualizarContacto(contacto);
+		agendaService.actualizarContacto(contacto);
 		
 	}
 	
 	@DeleteMapping(value="contactos/{id}")
-	public void ActualizarContacto(@PathVariable("id") int idContacto) {
-		agenda.eliminarContacto(idContacto);
+	public void EliminarContacto(@PathVariable("id") int idContacto) {
+		agendaService.eliminarContacto(idContacto);
 	}
 	
 	

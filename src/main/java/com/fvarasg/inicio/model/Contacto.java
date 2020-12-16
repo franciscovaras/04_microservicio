@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "contacto")
+@Table(name = "contactos")
 @NamedQuery(name = "Contacto.findAll", query = "SELECT c FROM Contacto c")
 public class Contacto implements Serializable {
 
@@ -28,7 +28,6 @@ public class Contacto implements Serializable {
 	}
 
 	public Contacto(int idContacto, int edad, String email, String nombre) {
-		super();
 		this.idContacto = idContacto;
 		this.edad = edad;
 		this.email = email;
@@ -65,10 +64,6 @@ public class Contacto implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	/**

@@ -11,44 +11,44 @@ import com.fvarasg.inicio.model.Contacto;
 public class AgendaDaoImpl implements IAgendaDao {
 	
 	@Autowired
-	IAgendaJpaSpringDao agenda;
+	IAgendaJpaSpringDao agendaJpaDao;
 	
 	@Override
 	public void agregarContacto(Contacto contacto) {
-		agenda.save(contacto);
+		agendaJpaDao.save(contacto);
 
 	}
 
 	@Override
 	public Contacto recuperarContacto(String email) {
-		return agenda.findByEmail(email);
+		return agendaJpaDao.findByEmail(email);
 	}
 
 	@Override
 	public void eliminarContacto(String email) {
-		agenda.eliminarPorEmail(email);
+		agendaJpaDao.eliminarPorEmail(email);
 
 	}
 
 	@Override
 	public List<Contacto> devolverContactos() {
-		return agenda.findAll();
+		return agendaJpaDao.findAll();
 	}
 
 	@Override
 	public void eliminarContacto(int idContacto) {
-		agenda.deleteById(idContacto);
+		agendaJpaDao.deleteById(idContacto);
 
 	}
 
 	@Override
 	public Contacto recuperarContacto(int idContacto) {
-		return agenda.findById(idContacto).orElse(null);
+		return agendaJpaDao.findById(idContacto).orElse(null);
 	}
 
 	@Override
 	public void actualizarContacto(Contacto contacto) {
-		agenda.save(contacto);
+		agendaJpaDao.save(contacto);
 
 	}
 

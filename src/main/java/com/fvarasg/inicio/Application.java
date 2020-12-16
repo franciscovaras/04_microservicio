@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.fvarasg.inicio.controller.ContactosController;
 
-@ComponentScan(basePackages = {"controller","dao","service"})
-@EntityScan(basePackages = {"model"})
-@EnableJpaRepositories(basePackages = {"dao"})
+//@ComponentScan(basePackages = {"com.fvarasg.inicio.controller","com.fvarasg.inicio.dao","com.fvarasg.inicio.service"})
+@EntityScan(basePackages = {"com.fvarasg.inicio.model"})
+@EnableJpaRepositories(basePackages = {"com.fvarasg.inicio.dao"})
 @SpringBootApplication
 public class Application {
 
