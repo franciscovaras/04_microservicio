@@ -15,12 +15,12 @@ public class AgendaServiceImpl implements IAgendaService {
 	IAgendaDao agendaDao;
 	
 	@Override
-	public boolean agregarContacto(Contacto contacto) {
+	public void agregarContacto(Contacto contacto) throws Exception{
 		if(agendaDao.recuperarContacto(contacto.getIdContacto()) == null) {
 			agendaDao.agregarContacto(contacto);
-			return true;
+			return;
 		}
-		return false;
+		throw new Exception("Contacto repetido");
 	}
 
 	@Override
